@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non Grata | Стиль нового поколения</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Базовые стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Навигация - упрощённая */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: white;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 100;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #000;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: #ff3366;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 25px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        nav a:hover {
+            color: #ff3366;
+        }
+        
+        /* Основные секции */
+        section {
+            min-height: 100vh;
+            padding: 100px 5% 50px;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            font-size: 18px;
+            color: #666;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        /* Кнопка */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #000;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #ff3366;
+        }
+        
+        /* Экран 1: Герой */
+        #hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://i.ytimg.com/vi/2_JncBLyNc4/hqdefault.jpg?sqp=-oaymwExCNACELwBSFryq4qpAyMIARUAAIhCGAHwAQH4Af4JgALQBYoCDAgAEAEYXSBlKEYwDw==&rs=AOn4CLCH1-AnXPBmXKFxhb2USx7Syt69QA') no-repeat center center/cover;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        #hero .section-title {
+            color: white;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        #hero .section-subtitle {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 40px;
+        }
+        
+        /* Экран 2: Коллекция */
+        #collection {
+            background-color: white;
+        }
+        
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .product {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .product img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .product-price {
+            color: #ff3366;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        
+        /* Экран 3: Рассрочка */
+        #installment {
+            background-color: #f5f5f5;
+        }
+        
+        .installment-box {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .installment-title {
+            font-size: 28px;
+            color: #000;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .installment-desc {
+            color: #666;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .step-number {
+            background-color: #000;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 15px;
+        }
+        
+        /* Экран 4: Oversize проект */
+        #oversize {
+            background-color: #000;
+            color: white;
+        }
+        
+        #oversize .section-title,
+        #oversize .section-subtitle {
+            color: white;
+        }
+        
+        .oversize-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            gap: 40px;
+        }
+        
+        .oversize-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .oversize-text p {
+            margin-bottom: 20px;
+            font-size: 17px;
+        }
+        
+        /* Экран 5: Магазины */
+        #stores {
+            background-color: white;
+        }
+        
+        .stores {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .store {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #ff3366;
+        }
+        
+        .store-city {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        /* Футер */
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 50px 5% 30px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1000px;
+            margin: 0 auto 40px;
+            gap: 30px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            text-align: left;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+        }
+        
+        .footer-column a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 28px;
+            }
+            
+            #hero .section-title {
+                font-size: 36px;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                font-size: 24px;
+                background: none;
+                border: none;
+                color: #333;
+                cursor: pointer;
+            }
+            
+            .oversize-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигация -->
+    <header>
+        <a href="#hero" class="logo">Non Grata<span>.</span></a>
+        <nav>
+            <ul>
+                <li><a href="#collection">Коллекция</a></li>
+                <li><a href="#installment">Рассрочка</a></li>
+                <li><a href="#oversize">Oversize</a></li>
+                <li><a href="#stores">Магазины</a></li>
+            </ul>
+        </nav>
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <!-- Экран 1: Главный экран -->
+    <section id="hero">
+        <h1 class="section-title">Одежда родом из Юззз</h1>
+        <p class="section-subtitle">Одежда, обувь и аксессуары для тех, кто вырос бесстрашным</p>
+        <a href="#collection" class="btn">Смотреть коллекцию</a>
+    </section>
+
+    <!-- Экран 2: Коллекция -->
+    <section id="collection">
+        <h2 class="section-title">НОВЫЕ ПОСТУПЛЕНИЯ</h2>
+        <p class="section-subtitle">Популярные модели этого сезона</p>
+        
+        <div class="products">
+            <div class="product">
+                <img src="https://ir.ozone.ru/s3/multimedia-1-9/7903674513.jpg" alt="Свитшот">
+                <div class="product-info">
+                    <h3 class="product-title">Свитшот Polo ralph lauren</h3>
+                    <p class="product-price">10 990 ₽</p>
+                    <a href="#" class="btn">Купить</a>
+                </div>
+            </div>
+            
+            <div class="product">
+                <img src="https://yandex-images.clstorage.net/Se98kx351/d17a135_/VFrSlKyQR4C6PBx_FmL0WT9DJHSD01cP-HFhtFWNjy5iK1PBnUS_SFCNYoJSC5J-3dHXUNtSOlaNL5rDC25OXrFu9wCZlDPwinyNW4ej0Gg_k_BEQrZz77yEQRRVuOydhQwUYl-XiE83SqZCd9uXv2xgo0ao5h7g3dqoV3m86foGC4DnfOGGVNnNH3mXEtYKbAGBtgISkQ9NopBR8T-8H0YtFtN9dbu_lbhlo0Zr5f2Y0oCmWyLPs75b2eUorNsL9KtQRL6RBIbZjV2px0KEqk5R8rUw0NMf76OhoRD9D433TjYTHbXoXda61RDXaycMedLSNwoBH7LtyCjG2Q8L61dasyZMA_TEGh0dq3ZTx-o-cJH3MrAC_G6B4MOwjP8tRe40sD-UaY_HmMSRJ0tlvApggmYqEy8T_bt69zsdi_knGIIW3lIFlxgerSmV43ZrX4HCd2Kg89w98RKB8EzM_gSNJBEsR_g-xHq2kKWZt0z6wyNU-1N9kZ5IaibrjQia5trydN2hFbXKzg_r5WAF-OxgEvTjUUOuX3NxsUI8XzwmD3YCrbXqTkUbBQPFevetytDS16lgXzPNmjmHOG_4CudI8idf4kZW-N58SXUj9MotokPG8CIDDB8xgdMC_r7tZAxlQ_20KDwHSlTBRAt0bUgSsSc7oF_T_-pL1wosqtvF6NDErMA2xElNHVvFU2SZjJPwJsGi4v588XDD0fy_Hif9V2E9xQvdJprVQeS4RP5qcMIHa8MP0337i5V6XynpNhoS1S_RNJTp3R7Kd0JUy59wkjVA8HBuDpFDEAGNna5XXwbB3TT4Tkb4xTF2WNV8CFFyJ9uhLTJ-aggkyN8Zq8QZ8dVdgHQmuf5NG4Uwh5o8MjPn4UKTLiwTooPxD54f9Dw2oe3GmY22eDVzdnv2_HnR0ldJwExTjgqLh0pM-Cr0u-L13SHV9HivTisnk_e4_zOStTFCIT8O4LFxci0-E" alt="Шорты">
+                <div class="product-info">
+                    <h3 class="product-title">Шорты Stone Island Supreme</h3>
+                    <p class="product-price">12 490 ₽</p>
+                    <a href="#" class="btn">Купить</a>
+                </div>
+            </div>
+            
+            <div class="product">
+                <img src="https://avatars.mds.yandex.net/get-mpic/16317423/2a000001993302c2a7eb92ec167643c882f2/orig" alt="Кроссовки">
+                <div class="product-info">
+                    <h3 class="product-title">Кроссовки Jordan 5</h3>
+                    <p class="product-price">20 490 ₽</p>
+                    <a href="#" class="btn">Купить</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Экран 3: Рассрочка -->
+    <section id="installment">
+        <h2 class="section-title">РАССРОЧКА БЕЗ ПЕРЕПЛАТ</h2>
+        <p class="section-subtitle">Носите сейчас, платите потом</p>
+        
+        <div class="installment-box">
+            <h3 class="installment-title">25% первый платёж</h3>
+            <p class="installment-desc">Оформите заказ и заплатите только 25% от стоимости. Остальное — по графику.</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Добавьте в корзину</h4>
+                    <p>Выберите товары</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Выберите оплату</h4>
+                    <p>"Яндекс Сплит" или "Долями"</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Получите заказ</h4>
+                    <p>Оплатите первую часть</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Экран 4: Oversize проект -->
+    <section id="oversize">
+        <h2 class="section-title">ЮЗЗЗ ПРОЕКТ</h2>
+        <p class="section-subtitle">Свобода движения и стиля</p>
+        
+        <div class="oversize-content">
+            <div class="oversize-text">
+                <p>Коллекция оверсайз вещей для тех, кто вырос в веселом месте.</p>
+                <p>Универсальные силуэты, качественные материалы и актуальные модели.</p>
+                <p>Каждая вещь создана для повседневной носки и особых случаев.</p>
+                <a href="#collection" class="btn" style="margin-top: 20px;">Смотреть коллекцию</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Экран 5: Магазины -->
+    <section id="stores">
+        <h2 class="section-title">НАШИ МАГАЗИНЫ</h2>
+        <p class="section-subtitle">Приходите, чтобы примерить</p>
+        
+        <div class="stores">
+            <div class="store">
+                <h3 class="store-city">Ростов-на-Дону</h3>
+                <p>ул. Нагибина, 32<br>ТЦ "Горизонт", 2 этаж</p>
+            </div>
+            
+            <div class="store">
+                <h3 class="store-city">Москва</h3>
+                <p>Пресненская наб., 2<br>ТЦ "Афимолл", 3 этаж</p>
+                <p><strong>Метро:</strong>Деловой центр</p>
+            </div>
+            
+            <div class="store">
+                <h3 class="store-city">Казань</h3>
+                <p>ул. Петербургская, 9<br>ТЦ "Республика", 1 этаж</p>
+                <p><strong>Метро:</strong> Площадь Тукая</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>NON GRATA</h3>
+                <p>Интернет-магазин стильной одежды для молодёжи.</p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Меню</h3>
+                <ul>
+                    <li><a href="#collection">Коллекция</a></li>
+                    <li><a href="#installment">Рассрочка</a></li>
+                    <li><a href="#oversize">Oversize</a></li>
+                    <li><a href="#stores">Магазины</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Контакты</h3>
+                <ul>
+                    <li>8 (928) 964-68-14</li>
+                    <li>NonGrata@gmail.ru</li>
+                    <li>Ежедневно 10:00—22:00</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>© 2023 Non Grata. Все права защищены.</p>
+            <p>Для обеспечения высокого уровня обслуживания на этом сайте используются куки (cookies).</p>
+        </div>
+    </footer>
+
+    <script>
+        // Мобильное меню
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav ul');
+        
+        menuBtn.addEventListener('click', () => {
+            if (nav.style.display === 'block') {
+                nav.style.display = 'none';
+            } else {
+                nav.style.display = 'block';
+                nav.style.position = 'absolute';
+                nav.style.top = '70px';
+                nav.style.left = '0';
+                nav.style.width = '100%';
+                nav.style.backgroundColor = 'white';
+                nav.style.padding = '20px';
+                nav.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+                nav.style.flexDirection = 'column';
+                
+                const navItems = nav.querySelectorAll('li');
+                navItems.forEach(item => {
+                    item.style.margin = '10px 0';
+                });
+            }
+        });
+        
+        // Плавная прокрутка
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Закрываем меню на мобильных
+                if (window.innerWidth <= 768) {
+                    nav.style.display = 'none';
+                }
+            });
+        });
+        
+        // Простое сообщение при клике на "Купить"
+        document.querySelectorAll('.product .btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Товар добавлен в корзину!');
+            });
+        });
+    </script>
+</body>
+</html>
